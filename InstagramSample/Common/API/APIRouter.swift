@@ -9,18 +9,7 @@
 import Foundation
 import Alamofire
 
-struct AccessToken {
-    
-}
-
-
 enum APIRouter: URLRequestConvertible {
-    private var accessToken: String{
-        if let token = UserDefaults.standard.object(forKey: "AccessToken") as? String {
-            return token
-        }
-        return ""
-    }
     
     //내 정보 조회
     case ownerInformation
@@ -71,7 +60,7 @@ enum APIRouter: URLRequestConvertible {
     
     private var parameter: Parameters?{
         var param : Parameters = [:]
-        param["access_token"] = self.accessToken
+        param["access_token"] = UserInfo.token
         
         switch self{
         case .comments(_):

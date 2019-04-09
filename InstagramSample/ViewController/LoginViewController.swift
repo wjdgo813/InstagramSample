@@ -13,7 +13,7 @@ import SnapKit
 
 final class LoginViewController: BaseViewController {
 
-    private var client : (id: String, redirectUri: String)
+    private var client: (id: String, redirectUri: String)
     private var webViewObservation: NSKeyValueObservation?
     
     private lazy var webView: WKWebView = {
@@ -130,7 +130,10 @@ extension LoginViewController: WKNavigationDelegate{
         if let url = navigationAction.request.url?.absoluteString,
             let range = url.range(of: "#access_token="){
             UserDefaults.standard.setValue(String(url[range.upperBound...]), forKey: "AccessToken")
+            NotificationCenter.default.post(name: NSNotification.Name.session.didChange, object: nil)
         }
+        
+        
         decisionHandler(.allow)
     }
     

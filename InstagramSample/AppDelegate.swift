@@ -10,18 +10,42 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    private let clientID    = "2ea80bcdd38641deac2a0dc6043b6130"
+    private let redirectUri = "http://localhost:3000?lg2ea80bcdd38641deac2a0dc6043b6130://authorize"
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let loginVC = LoginViewController(clidentId: "2ea80bcdd38641deac2a0dc6043b6130", redirectUri: "http://localhost:3000?lg2ea80bcdd38641deac2a0dc6043b6130://authorize")
         
-        self.window?.rootViewController = loginVC
-        self.window?.makeKeyAndVisible()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadRootViewController),
+                                               name: NSNotification.Name.session.didChange,
+                                               object: nil)
+        
+        reloadRootViewController()
         return true
     }
 
+    
+    @objc private func reloadRootViewController(){
+        var launcViewController : UIViewController?
+        
+        if UserInfo.token.count > 0{
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as UIViewController
+            launcViewController = UINavigationController(rootViewController: vc)
+        }else{
+            launcViewController = LoginViewController(clidentId: self.clientID, redirectUri: self.redirectUri)
+        }
+        
+        
+        self.window?.rootViewController = launcViewController!
+        self.window?.makeKeyAndVisible()
+    }
+    
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
