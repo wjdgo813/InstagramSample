@@ -13,34 +13,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let clientID    = "2ea80bcdd38641deac2a0dc6043b6130"
     private let redirectUri = "http://localhost:3000?lg2ea80bcdd38641deac2a0dc6043b6130://authorize"
     
+    private var loginViewController : LoginViewController?
+    private var mainViewController  : UIViewController?
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.setupEntryController()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reloadRootViewController),
                                                name: NSNotification.Name.session.didChange,
                                                object: nil)
-        
-        reloadRootViewController()
+
+        self.reloadRootViewController()
         return true
     }
+    
 
+    private func setupEntryController(){
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        self.mainViewController  = UINavigationController(rootViewController: mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as UIViewController)
+        self.loginViewController = LoginViewController(clidentId: self.clientID, redirectUri: self.redirectUri)
+    }
+    
+    
     
     @objc private func reloadRootViewController(){
-        var launcViewController : UIViewController?
+        let isLogin = UserInfo.token != "" ? true : false
         
-        if UserInfo.token.count > 0{
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as UIViewController
-            launcViewController = UINavigationController(rootViewController: vc)
-        }else{
-            launcViewController = LoginViewController(clidentId: self.clientID, redirectUri: self.redirectUri)
-        }
-        
-        
-        self.window?.rootViewController = launcViewController!
+        self.window?.rootViewController = isLogin ? self.mainViewController : self.loginViewController
         self.window?.makeKeyAndVisible()
     }
     
