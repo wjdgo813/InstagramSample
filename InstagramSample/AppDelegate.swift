@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let loginVC = LoginViewController(clidentId: "2ea80bcdd38641deac2a0dc6043b6130", redirectUri: "http://localhost:3000?lg2ea80bcdd38641deac2a0dc6043b6130://authorize")
+        
+        self.window?.rootViewController = loginVC
+        self.window?.makeKeyAndVisible()
         return true
     }
 
