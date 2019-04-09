@@ -127,6 +127,10 @@ extension LoginViewController: WKNavigationDelegate{
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         print("url : \(navigationAction.request.url?.absoluteString ?? "")")
         
+        if let url = navigationAction.request.url?.absoluteString,
+            let range = url.range(of: "#access_token="){
+            UserDefaults.standard.setValue(String(url[range.upperBound...]), forKey: "AccessToken")
+        }
         decisionHandler(.allow)
     }
     
