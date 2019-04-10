@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let redirectUri = "http://localhost:3000?lg2ea80bcdd38641deac2a0dc6043b6130://authorize"
     
     private var loginViewController : LoginViewController?
-    private var mainViewController  : UIViewController?
+    private var profileViewController  : UIViewController?
     
     var window: UIWindow?
 
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupEntryController(){
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        self.mainViewController  = UINavigationController(rootViewController: mainStoryboard.instantiateViewController(withIdentifier: "ViewController") as UIViewController)
+        self.profileViewController  = UINavigationController(rootViewController: mainStoryboard.instantiateViewController(withIdentifier: "ProfileViewController") as UIViewController)
         self.loginViewController = LoginViewController(clidentId: self.clientID, redirectUri: self.redirectUri)
     }
     
@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @objc private func reloadRootViewController(){
         let isLogin = UserInfo.token != "" ? true : false
         
-        self.window?.rootViewController = isLogin ? self.mainViewController : self.loginViewController
+        self.window?.rootViewController = isLogin ? self.profileViewController : self.loginViewController
         self.window?.makeKeyAndVisible()
     }
     

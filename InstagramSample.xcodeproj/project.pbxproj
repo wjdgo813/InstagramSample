@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8F33A02DE639B1C836C618B7 /* Pods_InstagramSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C0263C97718538093E0219 /* Pods_InstagramSampleUITests.framework */; };
+		A1696715225E1537007568EE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1696714225E1537007568EE /* ProfileViewModel.swift */; };
+		A1696717225E15CA007568EE /* Rx+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1696716225E15CA007568EE /* Rx+.swift */; };
+		A1696719225E1942007568EE /* BaseViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1696718225E1942007568EE /* BaseViewModelType.swift */; };
+		A169671B225E2570007568EE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169671A225E2570007568EE /* APIClient.swift */; };
+		A169671D225E38C9007568EE /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169671C225E38C9007568EE /* ProfileModel.swift */; };
 		A1EAA77B225CB32F007CFDE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAA77A225CB32F007CFDE5 /* AppDelegate.swift */; };
-		A1EAA77D225CB32F007CFDE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAA77C225CB32F007CFDE5 /* ViewController.swift */; };
+		A1EAA77D225CB32F007CFDE5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAA77C225CB32F007CFDE5 /* ProfileViewController.swift */; };
 		A1EAA780225CB32F007CFDE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EAA77E225CB32F007CFDE5 /* Main.storyboard */; };
 		A1EAA782225CB330007CFDE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EAA781225CB330007CFDE5 /* Assets.xcassets */; };
 		A1EAA785225CB330007CFDE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EAA783225CB330007CFDE5 /* LaunchScreen.storyboard */; };
@@ -49,9 +54,14 @@
 		85D2FE6E5F0B6AB234D3B8AD /* Pods-InstagramSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSampleTests/Pods-InstagramSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		87B63155F18AA01230A75903 /* Pods-InstagramSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSample/Pods-InstagramSample.release.xcconfig"; sourceTree = "<group>"; };
 		923D36EAEEBE451885F7769B /* Pods_InstagramSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1696714225E1537007568EE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A1696716225E15CA007568EE /* Rx+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+.swift"; sourceTree = "<group>"; };
+		A1696718225E1942007568EE /* BaseViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelType.swift; sourceTree = "<group>"; };
+		A169671A225E2570007568EE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A169671C225E38C9007568EE /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		A1EAA777225CB32F007CFDE5 /* InstagramSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EAA77A225CB32F007CFDE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1EAA77C225CB32F007CFDE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A1EAA77C225CB32F007CFDE5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A1EAA77F225CB32F007CFDE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1EAA781225CB330007CFDE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1EAA784225CB330007CFDE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -181,8 +191,8 @@
 		A1EAA7A8225CB4D6007CFDE5 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A1EAA77C225CB32F007CFDE5 /* ViewController.swift */,
-				A1EAA7A9225CB589007CFDE5 /* LoginViewController.swift */,
+				A1EAA7BE225E11A2007CFDE5 /* Profile */,
+				A1EAA7BD225E1180007CFDE5 /* Login */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -201,6 +211,7 @@
 		A1EAA7AC225CB5B6007CFDE5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A1696718225E1942007568EE /* BaseViewModelType.swift */,
 				A1EAA7AD225CB5C5007CFDE5 /* BaseViewController.swift */,
 			);
 			path = Base;
@@ -211,6 +222,7 @@
 			children = (
 				A1EAA7B0225CB93D007CFDE5 /* UIView+.swift */,
 				A1EAA7B5225CEEA9007CFDE5 /* Notification+.swift */,
+				A1696716225E15CA007568EE /* Rx+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -219,8 +231,27 @@
 			isa = PBXGroup;
 			children = (
 				A1EAA7B3225CD939007CFDE5 /* APIRouter.swift */,
+				A169671A225E2570007568EE /* APIClient.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		A1EAA7BD225E1180007CFDE5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A1EAA7A9225CB589007CFDE5 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A1EAA7BE225E11A2007CFDE5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A1EAA77C225CB32F007CFDE5 /* ProfileViewController.swift */,
+				A1696714225E1537007568EE /* ProfileViewModel.swift */,
+				A169671C225E38C9007568EE /* ProfileModel.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -525,14 +556,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A169671D225E38C9007568EE /* ProfileModel.swift in Sources */,
 				A1EAA7AA225CB589007CFDE5 /* LoginViewController.swift in Sources */,
 				A1EAA7B4225CD939007CFDE5 /* APIRouter.swift in Sources */,
 				A1EAA7AE225CB5C5007CFDE5 /* BaseViewController.swift in Sources */,
-				A1EAA77D225CB32F007CFDE5 /* ViewController.swift in Sources */,
+				A1696717225E15CA007568EE /* Rx+.swift in Sources */,
+				A1696715225E1537007568EE /* ProfileViewModel.swift in Sources */,
+				A1EAA77D225CB32F007CFDE5 /* ProfileViewController.swift in Sources */,
 				A1EAA7B8225CF007007CFDE5 /* UserInfo.swift in Sources */,
+				A1696719225E1942007568EE /* BaseViewModelType.swift in Sources */,
 				A1EAA77B225CB32F007CFDE5 /* AppDelegate.swift in Sources */,
 				A1EAA7B1225CB93D007CFDE5 /* UIView+.swift in Sources */,
 				A1EAA7B6225CEEA9007CFDE5 /* Notification+.swift in Sources */,
+				A169671B225E2570007568EE /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
