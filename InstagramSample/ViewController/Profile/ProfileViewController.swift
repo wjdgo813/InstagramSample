@@ -25,12 +25,21 @@ final class ProfileViewController: BaseViewController {
     }
     
     override func setupBind() {
-        let viewWillApear = self.rx.viewWillAppear.asDriver()
-        let input = ProfileViewModel.Input(trigger: viewWillApear)
-        
-        let output = viewModel.transform(input: input)
-        
-        
+        self.bindInput()
+        self.bindOutput()
+    }
+    
+    
+    private func bindInput(){
+        self.rx.viewWillAppear.debug("viewWillAppear").bind(to: self.viewModel.profileTrigger)
+            .disposed(by:self.disposeBag)
+    }
+    
+    
+    private func bindOutput(){
+        self.viewModel.profileUserInfo?.debug("profileUserInfo").drive(onNext: { profile in
+            print("name : \(profile.data?.fullName ?? "jhh")")
+        }).disposed(by: self.disposeBag)
     }
 }
 

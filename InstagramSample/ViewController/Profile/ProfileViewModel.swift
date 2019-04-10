@@ -12,7 +12,15 @@ import RxCocoa
 import RxSwift
 
 
-final class ProfileViewModel: BaseViewModelType {
+final class ProfileViewModel {
+    //input
+    let profileTrigger = PublishSubject<Void>()
+    
+    //output
+    var profileUserInfo : Driver<Profile>?
+    
+    let apiError = PublishSubject<String>()
+    
     
     let disposeBag   = DisposeBag()
     
@@ -21,36 +29,17 @@ final class ProfileViewModel: BaseViewModelType {
     }
     
     private func setup(){
+        self.profileUserInfo = self.profileTrigger.debug("profileTrigger").flatMapLatest{
+                APIClient.fetchUserInfo().do(onError: { [weak self] _ in
+                        guard let self = self else { return }
+                        self.apiError.onNext("")
+                    }).suppressError()
+            }.map{
+                return try JSONDecoder().decode(Profile.self, from: $0)
+            }.asDriver(onErrorJustReturn: Profile(data: nil, meta: nil))
         
-    }
-    
-    func transform(input: Input) -> Output {
-        let apiError = PublishSubject<String>()
-        let profilePost = input
-            .trigger
-            .flatMapLatest{ _ in
-            APIClient.fetchUserInfo()
-                .do(onError: { _ in
-                    apiError.onNext("")
-                }).suppressError()
-                .asDriverOnErrorJustComplete()
-        }
         
-        profilePost.asDriver().drive(onNext: { _ in
-            
-        }).disposed(by: self.disposeBag)
-        
-        return Output(error: apiError)
     }
 }
 
 
-extension ProfileViewModel{
-    struct Input {
-        let trigger: Driver<Void>
-    }
-    
-    struct Output {
-        let error: PublishSubject<String>
-    }
-}
