@@ -29,14 +29,14 @@ final class ProfileViewModel {
     }
     
     private func setup(){
-        self.profileUserInfo = self.profileTrigger.debug("profileTrigger").flatMapLatest{
+        self.profileUserInfo = self.profileTrigger.flatMapLatest{
                 APIClient.fetchUserInfo().do(onError: { [weak self] _ in
                         guard let self = self else { return }
                         self.apiError.onNext("")
                     }).suppressError()
             }.map{
                 return try JSONDecoder().decode(Profile.self, from: $0)
-            }.asDriver(onErrorJustReturn: Profile(data: nil, meta: nil))
+            }.asDriverOnErrorJustComplete()
         
         
     }

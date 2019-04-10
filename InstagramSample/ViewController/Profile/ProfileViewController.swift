@@ -31,13 +31,13 @@ final class ProfileViewController: BaseViewController {
     
     
     private func bindInput(){
-        self.rx.viewWillAppear.debug("viewWillAppear").bind(to: self.viewModel.profileTrigger)
+        self.rx.viewWillAppear.bind(to: self.viewModel.profileTrigger)
             .disposed(by:self.disposeBag)
     }
     
     
     private func bindOutput(){
-        self.viewModel.profileUserInfo?.debug("profileUserInfo").drive(onNext: { profile in
+        self.viewModel.profileUserInfo?.drive(onNext: { profile in
             print("name : \(profile.data?.fullName ?? "jhh")")
         }).disposed(by: self.disposeBag)
     }

@@ -22,7 +22,7 @@ struct ProfileCode : Codable {
 struct ProfileData: Codable {
     var bio            : String?
     var fullName       : String?
-    var id	           : Int?
+    var id	           : String?
     var profilePicture : String?
     var userName       : String?
     
@@ -37,7 +37,7 @@ struct ProfileData: Codable {
     init(from decoder: Decoder) throws {
         let values      = try decoder.container(keyedBy: CodingKeys.self)
         self.bio        = try values.decode(String.self, forKey: .bio)
-        self.id         = try values.decode(Int.self, forKey: .id)
+        self.id         = try values.decode(String.self, forKey: .id)
         self.fullName   = try values.decode(String.self, forKey: .fullName)
         self.profilePicture = try values.decode(String.self, forKey: .profilePicture)
         self.userName   = try values.decode(String.self, forKey: .userName)
