@@ -17,7 +17,7 @@ final class ProfileViewModel {
     let profileTrigger = PublishSubject<Void>()
     
     //output
-    var media           : Driver<SectionOfMedia>?
+    var media           : Driver<[SectionOfMedia]>?
     let apiError = PublishSubject<String>()
     
     let disposeBag   = DisposeBag()
@@ -44,14 +44,13 @@ final class ProfileViewModel {
         
         
         self.media = Observable.combineLatest(resultProfile,resultMedia){ ($0, $1) }.map{
-            return SectionOfMedia(header: $0, items: $1.data!)
+            return [SectionOfMedia(header: $0, items: $1.data!)]
         }.asDriverOnErrorJustComplete()
     }
 }
 
 //fetch API
 extension ProfileViewModel{
-    
     private func fetchUserInfo()->Observable<Data>{
         return APIClient.fetchUserInfo().do(onError: { [weak self] _ in
             guard let self = self else { return }

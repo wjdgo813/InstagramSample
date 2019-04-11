@@ -11,7 +11,7 @@ import Foundation
 import Alamofire
 import RxSwift
 
-class APIClient{
+final class APIClient{
     static func rxJSONAPIObservable(url : URLRequestConvertible)->Observable<Data>{
         return Observable.create{ emit in
             Alamofire.request(url).responseJSON(completionHandler: { response in

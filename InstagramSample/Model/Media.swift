@@ -13,6 +13,7 @@ struct RecentMedia: Codable {
     var data       : [RecentData]?
 }
 
+
 struct RecentPagination: Codable{
     var nextURL   : String?
     var nextMaxID : String?
