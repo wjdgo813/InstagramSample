@@ -25,6 +25,7 @@ final class ProfileViewController: BaseViewController {
     
     override func setupUI() {
         self.setupCollectionView()
+        self.setupCollectionViewLayout()
     }
     
     
@@ -69,7 +70,16 @@ extension ProfileViewController{
         self.profileCollectionView.register(ProfileCell.self, forCellWithReuseIdentifier: "ProfileCell")
         self.profileCollectionView.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: profileHeaderIdentifier)
     }
+    
+    
+    private func setupCollectionViewLayout(){
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        self.profileCollectionView.collectionViewLayout = layout
+    }
 }
+
 
 //MARK: CollectionView DataSoruce
 extension ProfileViewController{
@@ -107,6 +117,7 @@ extension ProfileViewController{
     }
 }
 
+
 //MARK: CollectionView FlowLayout
 extension ProfileViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -114,6 +125,6 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width / 3, height: 50)
+        return CGSize(width: collectionView.frame.width / 3 - 1, height: 50)
     }
 }
