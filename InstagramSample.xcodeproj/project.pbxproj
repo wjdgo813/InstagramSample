@@ -11,7 +11,6 @@
 		A1696715225E1537007568EE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1696714225E1537007568EE /* ProfileViewModel.swift */; };
 		A1696717225E15CA007568EE /* Rx+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1696716225E15CA007568EE /* Rx+.swift */; };
 		A169671B225E2570007568EE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169671A225E2570007568EE /* APIClient.swift */; };
-		A169671D225E38C9007568EE /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169671C225E38C9007568EE /* ProfileModel.swift */; };
 		A1EAA77B225CB32F007CFDE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAA77A225CB32F007CFDE5 /* AppDelegate.swift */; };
 		A1EAA77D225CB32F007CFDE5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAA77C225CB32F007CFDE5 /* ProfileViewController.swift */; };
 		A1EAA780225CB32F007CFDE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EAA77E225CB32F007CFDE5 /* Main.storyboard */; };
@@ -26,6 +25,9 @@
 		A1EAA7B6225CEEA9007CFDE5 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAA7B5225CEEA9007CFDE5 /* Notification+.swift */; };
 		A1EAA7B8225CF007007CFDE5 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAA7B7225CF007007CFDE5 /* UserInfo.swift */; };
 		B184C6FA1A0295666EBCCEDA /* Pods_InstagramSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923D36EAEEBE451885F7769B /* Pods_InstagramSampleTests.framework */; };
+		CC6B9630225EDF2D007E69E2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B962F225EDF2D007E69E2 /* Profile.swift */; };
+		CC6B9632225EDF35007E69E2 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B9631225EDF35007E69E2 /* Media.swift */; };
+		CC6B9634225F05B1007E69E2 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B9633225F05B1007E69E2 /* ProfileModel.swift */; };
 		F80D2383FA12B63B101A075B /* Pods_InstagramSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336CBD5C1EA1F3FA6D4D1DC6 /* Pods_InstagramSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +58,6 @@
 		A1696714225E1537007568EE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A1696716225E15CA007568EE /* Rx+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+.swift"; sourceTree = "<group>"; };
 		A169671A225E2570007568EE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		A169671C225E38C9007568EE /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		A1EAA777225CB32F007CFDE5 /* InstagramSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EAA77A225CB32F007CFDE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1EAA77C225CB32F007CFDE5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +79,9 @@
 		A1EAA7B7225CF007007CFDE5 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		B6D1D7FC68D46DEA67D8FB3E /* Pods-InstagramSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSample/Pods-InstagramSample.debug.xcconfig"; sourceTree = "<group>"; };
 		C9C0263C97718538093E0219 /* Pods_InstagramSampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramSampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC6B962F225EDF2D007E69E2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		CC6B9631225EDF35007E69E2 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		CC6B9633225F05B1007E69E2 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		F348F0FBC2486C0DEA586BAF /* Pods-InstagramSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSampleUITests/Pods-InstagramSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +161,7 @@
 		A1EAA779225CB32F007CFDE5 /* InstagramSample */ = {
 			isa = PBXGroup;
 			children = (
+				CC6B962E225EDF1D007E69E2 /* Model */,
 				A1EAA7AB225CB5A9007CFDE5 /* Common */,
 				A1EAA7A8225CB4D6007CFDE5 /* ViewController */,
 				A1EAA77A225CB32F007CFDE5 /* AppDelegate.swift */,
@@ -246,9 +251,18 @@
 			children = (
 				A1EAA77C225CB32F007CFDE5 /* ProfileViewController.swift */,
 				A1696714225E1537007568EE /* ProfileViewModel.swift */,
-				A169671C225E38C9007568EE /* ProfileModel.swift */,
+				CC6B9633225F05B1007E69E2 /* ProfileModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		CC6B962E225EDF1D007E69E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC6B962F225EDF2D007E69E2 /* Profile.swift */,
+				CC6B9631225EDF35007E69E2 /* Media.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -553,9 +567,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A169671D225E38C9007568EE /* ProfileModel.swift in Sources */,
 				A1EAA7AA225CB589007CFDE5 /* LoginViewController.swift in Sources */,
+				CC6B9634225F05B1007E69E2 /* ProfileModel.swift in Sources */,
+				CC6B9632225EDF35007E69E2 /* Media.swift in Sources */,
 				A1EAA7B4225CD939007CFDE5 /* APIRouter.swift in Sources */,
+				CC6B9630225EDF2D007E69E2 /* Profile.swift in Sources */,
 				A1EAA7AE225CB5C5007CFDE5 /* BaseViewController.swift in Sources */,
 				A1696717225E15CA007568EE /* Rx+.swift in Sources */,
 				A1696715225E1537007568EE /* ProfileViewModel.swift in Sources */,

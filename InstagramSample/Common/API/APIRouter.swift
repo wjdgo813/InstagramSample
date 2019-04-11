@@ -68,9 +68,9 @@ enum APIRouter: URLRequestConvertible {
         case .ownerInformation:
             break
         case .recentMedia(let maxID, let minID,let count):
-            param["MAX_ID"] = maxID
-            param["MIN_ID"] = minID
-            param["COUNT"]  = count
+            param["max_id"] = maxID
+            param["min_id"] = minID
+            param["count"]  = count
             break
         }
         

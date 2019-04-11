@@ -2,44 +2,45 @@
 //  ProfileModel.swift
 //  InstagramSample
 //
-//  Created by Haehyeon Jeong on 10/04/2019.
+//  Created by JHH on 11/04/2019.
 //  Copyright © 2019 JHH. All rights reserved.
 //
 
 import Foundation
 
-struct Profile: Codable {
-    var data : ProfileData?
-    var meta : ProfileCode?
+import RxDataSources
+
+
+struct SectionOfMedia {
+    var header: Profile
+    var items : [Item]
 }
 
 
-struct ProfileCode : Codable {
-    var code : Int
-}
-
-
-struct ProfileData: Codable {
-    var bio            : String?
-    var fullName       : String?
-    var id	           : String?
-    var profilePicture : String?
-    var userName       : String?
+extension SectionOfMedia: AnimatableSectionModelType{
+    typealias Identity = String
+    typealias Item     = RecentData
     
-    enum CodingKeys: String,CodingKey {
-        case bio
-        case id
-        case fullName       = "full_name"
-        case profilePicture = "profile_picture"
-        case userName       = "username"
+    var identity: String{
+        return header.data?.id ?? ""
     }
     
-    init(from decoder: Decoder) throws {
-        let values      = try decoder.container(keyedBy: CodingKeys.self)
-        self.bio        = try values.decode(String.self, forKey: .bio)
-        self.id         = try values.decode(String.self, forKey: .id)
-        self.fullName   = try values.decode(String.self, forKey: .fullName)
-        self.profilePicture = try values.decode(String.self, forKey: .profilePicture)
-        self.userName   = try values.decode(String.self, forKey: .userName)
+    init(original: SectionOfMedia, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
+
+
+extension RecentData: IdentifiableType, Equatable{
+    typealias Identity = String
+    
+    var identity: String{
+        return mediaID ?? ""
+    }
+    
+    static func == (lhs: RecentData, rhs: RecentData) -> Bool{
+        return lhs.mediaID ?? "" == rhs.mediaID ?? ""
+            && lhs.identity == rhs.identity
     }
 }

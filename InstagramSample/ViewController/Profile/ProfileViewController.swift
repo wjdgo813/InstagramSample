@@ -20,9 +20,11 @@ final class ProfileViewController: BaseViewController {
         return viewModel.disposeBag
     }
     
+    
     override func setupUI() {
         
     }
+    
     
     override func setupBind() {
         self.bindInput()
@@ -37,8 +39,8 @@ final class ProfileViewController: BaseViewController {
     
     
     private func bindOutput(){
-        self.viewModel.profileUserInfo?.drive(onNext: { profile in
-            print("name : \(profile.data?.fullName ?? "jhh")")
+        self.viewModel.media?.drive(onNext: { data in
+            print("\(data.header.data?.fullName ?? "jhh")")
         }).disposed(by: self.disposeBag)
     }
 }

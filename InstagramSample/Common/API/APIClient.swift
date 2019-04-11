@@ -35,4 +35,8 @@ extension APIClient{
     static func fetchUserInfo()->Observable<Data>{
         return rxJSONAPIObservable(url: APIRouter.ownerInformation)
     }
+    
+    static func fetchRecentMedia(maxID: String?, minID: String?)->Observable<Data>{
+        return rxJSONAPIObservable(url: APIRouter.recentMedia(maxID: maxID ?? "", minID: minID ?? "", count: 3))
+    }
 }
