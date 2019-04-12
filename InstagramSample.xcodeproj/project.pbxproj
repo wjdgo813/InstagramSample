@@ -30,6 +30,7 @@
 		CC6B9634225F05B1007E69E2 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B9633225F05B1007E69E2 /* ProfileModel.swift */; };
 		CC6B9638225F10A3007E69E2 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B9637225F10A3007E69E2 /* ProfileCell.swift */; };
 		CC6B963A225F2F4A007E69E2 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6B9639225F2F4A007E69E2 /* ProfileHeaderView.swift */; };
+		CCE91CC922603B1000097346 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE91CC822603B1000097346 /* DetailViewController.swift */; };
 		F80D2383FA12B63B101A075B /* Pods_InstagramSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336CBD5C1EA1F3FA6D4D1DC6 /* Pods_InstagramSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		CC6B9633225F05B1007E69E2 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CC6B9637225F10A3007E69E2 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		CC6B9639225F2F4A007E69E2 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		CCE91CC822603B1000097346 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F348F0FBC2486C0DEA586BAF /* Pods-InstagramSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramSampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramSampleUITests/Pods-InstagramSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +200,7 @@
 		A1EAA7A8225CB4D6007CFDE5 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CCE91CC722603AED00097346 /* Detail */,
 				A1EAA7BE225E11A2007CFDE5 /* Profile */,
 				A1EAA7BD225E1180007CFDE5 /* Login */,
 			);
@@ -285,6 +288,14 @@
 				CC6B9633225F05B1007E69E2 /* ProfileModel.swift */,
 			);
 			path = VIewModel;
+			sourceTree = "<group>";
+		};
+		CCE91CC722603AED00097346 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CCE91CC822603B1000097346 /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1EAA7AA225CB589007CFDE5 /* LoginViewController.swift in Sources */,
+				CCE91CC922603B1000097346 /* DetailViewController.swift in Sources */,
 				CC6B9634225F05B1007E69E2 /* ProfileModel.swift in Sources */,
 				CC6B9632225EDF35007E69E2 /* Media.swift in Sources */,
 				A1EAA7B4225CD939007CFDE5 /* APIRouter.swift in Sources */,

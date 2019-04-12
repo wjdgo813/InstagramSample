@@ -38,6 +38,15 @@ final class ProfileViewController: BaseViewController {
     private func bindInput(){
         self.rx.viewWillAppear.bind(to: self.viewModel.profileTrigger)
             .disposed(by:self.disposeBag)
+        
+        
+        self.profileCollectionView
+            .rx
+            .modelSelected(RecentData.self)
+            .subscribe(onNext:{ [weak self] in
+                guard let self = self else { return }
+                self.presentDetailViewController(recentData: $0)
+        }).disposed(by:self.disposeBag)
     }
     
     
@@ -48,15 +57,6 @@ final class ProfileViewController: BaseViewController {
         
         media.drive(self.profileCollectionView.rx.items(dataSource: dataSource))
             .disposed(by: self.disposeBag)
-    }
-}
-
-
-//MARK: Set UIViewController
-extension ProfileViewController{
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
     }
     
     
@@ -77,6 +77,21 @@ extension ProfileViewController{
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
         self.profileCollectionView.collectionViewLayout = layout
+    }
+    
+    
+    private func presentDetailViewController(recentData: RecentData){
+        let detailVC = DetailViewController()
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+
+//MARK: UIViewController Life Cycle
+extension ProfileViewController{
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
 }
 
