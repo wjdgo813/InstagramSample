@@ -10,18 +10,25 @@ import UIKit
 
 import SnapKit
 
-class DetailViewController: UIViewController {
-    private var label = UILabel()
+class DetailViewController: BaseViewController {
+    private lazy var detailView = DetailView(controlBy : self)
+    var mediaData : RecentData
+    
+    init(mediaData : RecentData){
+        self.mediaData = mediaData
+        super.init(nibName: "", bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        view = self.detailView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         
-        self.view.addSubview(self.label)
-        self.label.text = "하윙"
-        
-        self.label.snp.makeConstraints{
-            $0.center.equalToSuperview()
-        }
     }
 }

@@ -66,7 +66,6 @@ final class ProfileViewController: BaseViewController {
             configureSupplementaryView:collectionViewDataSourceUI().1
         )
         
-        self.profileCollectionView.backgroundColor = UIColor.white
         self.profileCollectionView.register(ProfileCell.self, forCellWithReuseIdentifier: "ProfileCell")
         self.profileCollectionView.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: profileHeaderIdentifier)
     }
@@ -81,7 +80,7 @@ final class ProfileViewController: BaseViewController {
     
     
     private func presentDetailViewController(recentData: RecentData){
-        let detailVC = DetailViewController()
+        let detailVC = DetailViewController(mediaData: recentData)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
@@ -123,7 +122,7 @@ extension ProfileViewController{
         return {
              (dataSource ,collectionView, kind, indexPath) in
             if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: profileHeaderIdentifier, for: indexPath) as? ProfileHeaderView{
-                header.nameLabel?.text = dataSource[indexPath.row].header.data?.fullName ?? "JHH"
+                header.profileData = dataSource[indexPath.row].header
                 return header
             }
             return UICollectionReusableView()
@@ -135,7 +134,7 @@ extension ProfileViewController{
 //MARK: CollectionView FlowLayout
 extension ProfileViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 100)
+        return CGSize(width: self.view.frame.width, height: 200)
     }
     
     

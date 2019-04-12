@@ -13,11 +13,12 @@ import SnapKit
 
 
 final class ProfileCell: UICollectionViewCell {
-    private var thumbnail     : UIImageView? = UIImageView()
-    private var titleLabel    : UILabel?     = {
+    private var thumbnail     : UIImageView = UIImageView()
+    private var titleLabel    : UILabel     = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.numberOfLines = 2
+        label.textColor = .white
         return label
     }()
     
@@ -29,21 +30,17 @@ final class ProfileCell: UICollectionViewCell {
     
     
     func setupUI(){
-        guard let thumbnail = self.thumbnail,
-              let titleLabel = self.titleLabel
-        else { return }
-        
-        self.backgroundColor = .red
+        self.backgroundColor = .black
         self.addSubview(thumbnail)
         self.addSubview(titleLabel)
-        thumbnail.snp.makeConstraints{
-            $0.size.equalTo(self.frame.width)
+        self.thumbnail.snp.makeConstraints{
+            $0.width.equalTo(self.thumbnail.snp.height).multipliedBy(1.0/1.0)
             $0.top.equalToSuperview()
             $0.left.equalToSuperview()
             $0.right.equalToSuperview()
         }
         
-        titleLabel.snp.makeConstraints{
+        self.titleLabel.snp.makeConstraints{
             $0.top.equalTo(thumbnail.snp.bottom).offset(5)
             $0.left.equalToSuperview().offset(5)
             $0.right.equalToSuperview().offset(-5)
@@ -54,19 +51,10 @@ final class ProfileCell: UICollectionViewCell {
     private func contentChanged(){
         guard let contentData = self.contentData else { return }
         
+        let imageURL      = contentData.images?.thumbnail?.url ?? ""
+        let cacheIdentify = contentData.mediaID ?? "thumbnail"
         
-        let imageURL = URL(string: contentData.images?.thumbnail?.url ?? "")
-        if let url = imageURL {
-            guard let data = try? Data(contentsOf: url),
-                let image = UIImage(data: data)
-            else { return }
-            
-            let imageCache = AutoPurgingImageCache()
-
-            imageCache.add(image, withIdentifier: "thumbnail")
-            self.thumbnail?.image = imageCache.image(withIdentifier: "thumbnail")
-        }
-        
-        self.titleLabel?.text = contentData.caption?.text ?? ""
+        self.thumbnail.cacheImageView(urlString: imageURL, identifier: cacheIdentify)
+        self.titleLabel.text = contentData.caption?.text ?? ""
     }
 }
