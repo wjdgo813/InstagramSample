@@ -14,6 +14,10 @@ let profileHeaderIdentifier = "profileHeaderIdentifier"
 final class ProfileHeaderView: UICollectionReusableView {
     
     var nameLabel : UILabel? = UILabel()
+    var profileImage : UIImage? = UIImage()
+    var followedByLabel : UILabel? = UILabel()
+    var follows : UILabel? = UILabel()
+    var media : UILabel? = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

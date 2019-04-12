@@ -91,7 +91,6 @@ extension ProfileViewController{
     }
     
     
-    
     private func collectionViewDataSourceConfigureCell() -> CollectionViewSectionedDataSource<SectionOfMedia>.ConfigureCell{
         return { (dataSource, collectionView, indexPath, item) in
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as? ProfileCell{
