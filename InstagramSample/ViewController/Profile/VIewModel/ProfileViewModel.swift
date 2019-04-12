@@ -18,7 +18,7 @@ final class ProfileViewModel {
     
     //output
     var media           : Driver<[SectionOfMedia]>?
-    let apiError = PublishSubject<String>()
+    let apiError        = PublishSubject<String>()
     
     let disposeBag   = DisposeBag()
     
@@ -42,12 +42,12 @@ final class ProfileViewModel {
                 return try JSONDecoder().decode(RecentMedia.self, from: $0)
         }
         
-        
         self.media = Observable.combineLatest(resultProfile,resultMedia){ ($0, $1) }.map{
             return [SectionOfMedia(header: $0, items: $1.data!)]
         }.asDriverOnErrorJustComplete()
     }
 }
+
 
 //fetch API
 extension ProfileViewModel{

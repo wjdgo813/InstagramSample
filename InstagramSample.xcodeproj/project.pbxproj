@@ -299,7 +299,6 @@
 				A1EAA774225CB32F007CFDE5 /* Frameworks */,
 				A1EAA775225CB32F007CFDE5 /* Resources */,
 				C2B9E28D9C522B60489D3CE8 /* [CP] Embed Pods Frameworks */,
-				432DB1984DFCD113D2E36AC3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -318,8 +317,6 @@
 				A1EAA787225CB330007CFDE5 /* Sources */,
 				A1EAA788225CB330007CFDE5 /* Frameworks */,
 				A1EAA789225CB330007CFDE5 /* Resources */,
-				45C4F71ADBBA74557F9DE562 /* [CP] Embed Pods Frameworks */,
-				DF27E3EB159D32B0602F0CC6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,8 +336,6 @@
 				A1EAA792225CB330007CFDE5 /* Sources */,
 				A1EAA793225CB330007CFDE5 /* Frameworks */,
 				A1EAA794225CB330007CFDE5 /* Resources */,
-				F3FCAEA85BE23CDEC07DAB59 /* [CP] Embed Pods Frameworks */,
-				7DB6473802B64B4197E1DC98 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -423,36 +418,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		432DB1984DFCD113D2E36AC3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSample/Pods-InstagramSample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		45C4F71ADBBA74557F9DE562 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSampleTests/Pods-InstagramSampleTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		66C866D360E8ABF55CF9DCE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -469,21 +434,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7DB6473802B64B4197E1DC98 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSampleUITests/Pods-InstagramSampleUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8CC0560BB7753AFD59A915DC /* [CP] Check Pods Manifest.lock */ = {
@@ -510,10 +460,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSample/Pods-InstagramSample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-InstagramSample/Pods-InstagramSample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -522,8 +472,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -531,7 +481,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSample/Pods-InstagramSample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InstagramSample/Pods-InstagramSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CDC670301EEA5B9DA26DB6B3 /* [CP] Check Pods Manifest.lock */ = {
@@ -550,36 +500,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DF27E3EB159D32B0602F0CC6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSampleTests/Pods-InstagramSampleTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F3FCAEA85BE23CDEC07DAB59 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstagramSampleUITests/Pods-InstagramSampleUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
