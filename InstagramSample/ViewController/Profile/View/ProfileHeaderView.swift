@@ -77,26 +77,8 @@ final class ProfileHeaderView: UICollectionReusableView {
     
     private func setupUI(){
         self.backgroundColor = .white
-        self.setupProfileUI()
         self.setupNumberUI()
         self.setupContentUI()
-    }
-    
-    
-    private func setupProfileUI(){
-//        self.addSubview(self.profileStackView)
-        
-//        self.profileStackView.addArrangedSubview(self.profileImageView)
-////        self.profileStackView.addArrangedSubview(self.nameLabel)
-//
-//        self.profileStackView.snp.makeConstraints{
-//            $0.left.equalToSuperview().offset(10)
-//            $0.centerY.equalToSuperview()
-//        }
-//
-//        self.nameLabel.snp.makeConstraints{
-//            $0.centerY.equalToSuperview()
-//        }
     }
     
     
