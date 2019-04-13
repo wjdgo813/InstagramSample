@@ -24,6 +24,7 @@ final class ProfileViewController: BaseViewController {
     
     
     override func setupUI() {
+        self.title = "Instagram"
         self.setupCollectionView()
         self.setupCollectionViewLayout()
     }

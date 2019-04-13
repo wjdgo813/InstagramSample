@@ -18,7 +18,6 @@ class BaseView: UIView {
         super.init(frame: UIScreen.main.bounds)
         self.setupUI()
         self.setupBinding()
-        self.setupData()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,10 +31,7 @@ class BaseView: UIView {
     func setupBinding() {
         //Override
     }
-    
-    func setupData(){
-        //Override
-    }
+
     
     // MARK: Deinit
     deinit {

@@ -97,17 +97,6 @@ final class DetailView: BaseView, DetailContent{
         self.layoutIfNeeded()
     }
     
-    
-    override func setupData(){
-        guard let controller = self.controller else { return }
-        let profileImageURL  = controller.mediaData.writer?.profilePicture ?? ""
-        let contentImageURL  = controller.mediaData.images?.standardResolution?.url ?? ""
-        
-        self.profileNickname.text = controller.mediaData.writer?.userName ?? ""
-        self.profileImageView.cacheImageView(urlString: profileImageURL, identifier: "DetailProfileImage")
-        self.contentImageView.cacheImageView(urlString: contentImageURL, identifier: "DetailContentImage")
-        self.contentText.text = controller.mediaData.caption?.text ?? ""
-    }
 }
 
 

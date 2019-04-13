@@ -12,7 +12,11 @@ import SnapKit
 
 class DetailViewController: BaseViewController {
     private lazy var detailView = DetailView(controlBy : self)
-    var mediaData : RecentData
+    var mediaData : RecentData {
+        didSet{
+            self.setupData()
+        }
+    }
     
     init(mediaData : RecentData){
         self.mediaData = mediaData
@@ -29,6 +33,16 @@ class DetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupData()
+    }
+    
+    private func setupData(){
+        let profileImageURL  = self.mediaData.writer?.profilePicture ?? ""
+        let contentImageURL  = self.mediaData.images?.standardResolution?.url ?? ""
         
+        self.detailView.profileNickname.text = self.mediaData.writer?.userName ?? ""
+        self.detailView.profileImageView.cacheImageView(urlString: profileImageURL, identifier: "DetailProfileImage")
+        self.detailView.contentImageView.cacheImageView(urlString: contentImageURL, identifier: "DetailContentImage")
+        self.detailView.contentText.text = self.mediaData.caption?.text ?? ""
     }
 }
