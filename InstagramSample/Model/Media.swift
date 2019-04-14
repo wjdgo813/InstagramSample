@@ -11,6 +11,23 @@ import Foundation
 struct RecentMedia: Codable {
     var pagination : RecentPagination?
     var data       : [RecentData]?
+    
+    func moreLoadData(newData:RecentMedia) -> RecentMedia{
+        let originMedia = self.data
+        var returnMedia = RecentMedia()
+        
+        if let media = originMedia {
+            returnMedia.data = media
+        }
+        
+        if let media = newData.data {
+            returnMedia.data?.append(contentsOf: media)
+        }
+        
+        returnMedia.pagination = newData.pagination
+        
+        return returnMedia
+    }
 }
 
 

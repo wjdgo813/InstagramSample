@@ -18,11 +18,12 @@ final class LoginViewController: BaseViewController {
     
     private lazy var webView: WKWebView = {
         //
-        let webConfiguration = WKWebViewConfiguration()
-        webConfiguration.websiteDataStore = .nonPersistent()
+//        let webConfiguration = WKWebViewConfiguration()
+//        webConfiguration.websiteDataStore = .nonPersistent()
         //제출 전에 꼭 지우기 데이터 안쌓게 해주는 테스트용
         
-        let webView      = WKWebView(frame: .zero, configuration: webConfiguration)
+//        let webView      = WKWebView(frame: .zero, configuration: webConfiguration)
+        let webView = WKWebView(frame: .zero)
         webView.isOpaque = false
         webView.backgroundColor    = UIColor.white
         webView.navigationDelegate = self

@@ -12,7 +12,7 @@ import RxCocoa
 import RxDataSources
 import RxSwift
 
-final class ProfileViewController: BaseViewController {
+final class ProfileViewController: BaseViewController, CanShowAlert {
 
     @IBOutlet private weak var profileCollectionView: UICollectionView!
     
@@ -35,19 +35,25 @@ final class ProfileViewController: BaseViewController {
         self.bindOutput()
     }
     
-    
+
     private func bindInput(){
-        self.rx.viewWillAppear.bind(to: self.viewModel.profileTrigger)
-            .disposed(by:self.disposeBag)
+        self.viewModel.profileTrigger.onNext(())
         
         
-        self.profileCollectionView
-            .rx
+        self.profileCollectionView.rx
             .modelSelected(RecentData.self)
             .subscribe(onNext:{ [weak self] in
                 guard let self = self else { return }
                 self.presentDetailViewController(recentData: $0)
         }).disposed(by:self.disposeBag)
+        
+        
+        self.profileCollectionView.rx.contentOffset
+            .filter{ _ in
+                self.profileCollectionView.isNearBottomEdge()
+            }.mapToVoid()
+            .bind(to: self.viewModel.moreLoadTrigger)
+            .disposed(by: self.disposeBag)
     }
     
     
@@ -57,6 +63,15 @@ final class ProfileViewController: BaseViewController {
         else { return }
         
         media.drive(self.profileCollectionView.rx.items(dataSource: dataSource))
+            .disposed(by: self.disposeBag)
+        
+        
+        viewModel.apiError
+            .asDriverOnErrorJustComplete()
+            .drive (onNext:{  [weak self] errorMessage in
+                guard let self = self else { return }
+                self.showAlert(title:"알림",message:errorMessage)
+            })
             .disposed(by: self.disposeBag)
     }
     

@@ -23,16 +23,20 @@ extension ObservableType {
             other2
         )) { x, y in selector(x, y.0, y.1) }
     }
-}
-
-
-extension ObservableType{
+    
+    
+    func mapToVoid() -> Observable<Void>{
+        return map{ _ in ()}
+    }
+    
+    
     func asDriverOnErrorJustComplete() -> Driver<E> {
         return asDriver { error in
             return Driver.empty()
         }
     }
 }
+
 
 
 extension SharedSequenceConvertibleType {
@@ -45,6 +49,11 @@ extension SharedSequenceConvertibleType {
 extension Reactive where Base: UIViewController{
     var viewWillAppear: ControlEvent<Void>{
         let source = self.methodInvoked(#selector(Base.viewWillAppear)).map { _ in }
+        return ControlEvent(events: source)
+    }
+    
+    var viewDidload: ControlEvent<Void>{
+        let source = self.methodInvoked(#selector(Base.viewDidLoad)).map { _ in }
         return ControlEvent(events: source)
     }
 }

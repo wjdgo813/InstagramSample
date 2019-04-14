@@ -14,6 +14,8 @@
 		A1696715225E1537007568EE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1696714225E1537007568EE /* ProfileViewModel.swift */; };
 		A1696717225E15CA007568EE /* Rx+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1696716225E15CA007568EE /* Rx+.swift */; };
 		A169671B225E2570007568EE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169671A225E2570007568EE /* APIClient.swift */; };
+		A19001F92262E1A0004678CA /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19001F82262E1A0004678CA /* UIScrollView+.swift */; };
+		A1987C582263159200D2D622 /* CanShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1987C572263159200D2D622 /* CanShowAlert.swift */; };
 		A1EAA77B225CB32F007CFDE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAA77A225CB32F007CFDE5 /* AppDelegate.swift */; };
 		A1EAA77D225CB32F007CFDE5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAA77C225CB32F007CFDE5 /* ProfileViewController.swift */; };
 		A1EAA780225CB32F007CFDE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EAA77E225CB32F007CFDE5 /* Main.storyboard */; };
@@ -67,6 +69,8 @@
 		A1696714225E1537007568EE /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A1696716225E15CA007568EE /* Rx+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+.swift"; sourceTree = "<group>"; };
 		A169671A225E2570007568EE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A19001F82262E1A0004678CA /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
+		A1987C572263159200D2D622 /* CanShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanShowAlert.swift; sourceTree = "<group>"; };
 		A1EAA777225CB32F007CFDE5 /* InstagramSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EAA77A225CB32F007CFDE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1EAA77C225CB32F007CFDE5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				A1EAA7AF225CB92E007CFDE5 /* Extension */,
 				A1EAA7AC225CB5B6007CFDE5 /* Base */,
 				A1EAA7B7225CF007007CFDE5 /* UserInfo.swift */,
+				A1987C572263159200D2D622 /* CanShowAlert.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				A1EAA7B5225CEEA9007CFDE5 /* Notification+.swift */,
 				A1696716225E15CA007568EE /* Rx+.swift */,
 				A160816022608396002DA9E9 /* UIImageView+.swift */,
+				A19001F82262E1A0004678CA /* UIScrollView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -625,8 +631,10 @@
 				CC6B9638225F10A3007E69E2 /* ProfileCell.swift in Sources */,
 				A1EAA7B8225CF007007CFDE5 /* UserInfo.swift in Sources */,
 				A1EAA77B225CB32F007CFDE5 /* AppDelegate.swift in Sources */,
+				A1987C582263159200D2D622 /* CanShowAlert.swift in Sources */,
 				A1EAA7B1225CB93D007CFDE5 /* UIView+.swift in Sources */,
 				A160815F2260760E002DA9E9 /* BaseView.swift in Sources */,
+				A19001F92262E1A0004678CA /* UIScrollView+.swift in Sources */,
 				A1EAA7B6225CEEA9007CFDE5 /* Notification+.swift in Sources */,
 				A169671B225E2570007568EE /* APIClient.swift in Sources */,
 			);

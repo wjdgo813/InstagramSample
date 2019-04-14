@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                selector: #selector(reloadRootViewController),
                                                name: NSNotification.Name.session.didChange,
                                                object: nil)
-
-        self.reloadRootViewController()
+        
+        self.window?.rootViewController = self.loginViewController
         return true
     }
     
@@ -41,9 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     @objc private func reloadRootViewController(){
-        let isLogin = UserInfo.token != "" ? true : false
-        
-        self.window?.rootViewController = isLogin ? self.profileViewController : self.loginViewController
+        self.window?.rootViewController = self.profileViewController
         self.window?.makeKeyAndVisible()
     }
     

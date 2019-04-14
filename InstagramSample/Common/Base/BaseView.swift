@@ -31,7 +31,6 @@ class BaseView: UIView {
     func setupBinding() {
         //Override
     }
-
     
     // MARK: Deinit
     deinit {
