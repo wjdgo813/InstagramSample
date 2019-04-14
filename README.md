@@ -1,4 +1,4 @@
-# fInstagramSample
+# InstagramSample
 
 Instagram Open API를 이용한 내 게시글 조회 앱
 
