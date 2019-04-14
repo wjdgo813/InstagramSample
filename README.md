@@ -2,11 +2,11 @@
 
 Instagram Open API를 이용한 내 게시글 조회 앱
 
-### Languages
+## Languages
 
 - Swift 5.0
 
-### Architecture
+## Architecture
 
 - MVC
 - MVVM
