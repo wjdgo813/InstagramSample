@@ -10,7 +10,7 @@ import UIKit
 
 import SnapKit
 
-class DetailViewController: BaseViewController {
+final class DetailViewController: BaseViewController {
     private lazy var detailView = DetailView(controlBy : self)
     var mediaData : RecentData {
         didSet{

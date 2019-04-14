@@ -15,7 +15,6 @@ import RxSwift
 final class ProfileViewController: BaseViewController, CanShowAlert {
 
     @IBOutlet private weak var profileCollectionView: UICollectionView!
-    
     private let viewModel = ProfileViewModel()
     private var dataSource : RxCollectionViewSectionedAnimatedDataSource<SectionOfMedia>?
     private var disposeBag: DisposeBag{
@@ -51,7 +50,10 @@ final class ProfileViewController: BaseViewController, CanShowAlert {
         self.profileCollectionView.rx.contentOffset
             .filter{ _ in
                 self.profileCollectionView.isNearBottomEdge()
-            }.mapToVoid()
+            }
+            .throttle(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
+            .distinctUntilChanged()
+            .mapToVoid()
             .bind(to: self.viewModel.moreLoadTrigger)
             .disposed(by: self.disposeBag)
     }

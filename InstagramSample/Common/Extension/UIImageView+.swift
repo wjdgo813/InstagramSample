@@ -20,6 +20,5 @@ extension UIImageView{
             imageCache.add(image, withIdentifier: identifier)
             self.image = imageCache.image(withIdentifier: identifier)
         }
-        
     }
 }

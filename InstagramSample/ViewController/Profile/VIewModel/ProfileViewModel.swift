@@ -31,14 +31,19 @@ final class ProfileViewModel {
     
     private func setup(){
         let resultProfile = PublishSubject<Profile>()
-        self.profileTrigger.flatMapLatest{ [weak self] _ in
+        self.profileTrigger
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .flatMapLatest{ [weak self] _ in
                 self?.fetchUserInfo() ?? Observable.never()
             }.map{
                 return try JSONDecoder().decode(Profile.self, from: $0)
-            }.bind(to: resultProfile).disposed(by: self.disposeBag)
+            }.bind(to: resultProfile)
+            .disposed(by: self.disposeBag)
         
         
-        resultProfile.flatMapLatest{ [weak self] _ in
+        resultProfile
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .flatMapLatest{ [weak self] _ in
             self?.fetchRecentMedia() ?? Observable.never()
             }.map{
                 return try JSONDecoder().decode(RecentMedia.self, from: $0)
@@ -49,6 +54,7 @@ final class ProfileViewModel {
         Observable.combineLatest(self.moreLoadTrigger,
                                  self.resultMedia) {($0, $1)}
             .filter{ $0.1.pagination?.nextURL ?? "" != "" }
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMapFirst{ [weak self] result in
                 self?.fetchLoadMore(nextURL: result.1.pagination?.nextURL ?? "") ?? Observable.never()
             }
@@ -69,12 +75,13 @@ final class ProfileViewModel {
 }
 
 
+let errorString = "알 수 없는 API 에러로 잠시 후에 다시 시도해주시기 바랍니다."
 //fetch API
 extension ProfileViewModel{
     private func fetchUserInfo()->Observable<Data>{
         return APIClient.fetchUserInfo().do(onError: { [weak self] _ in
             guard let self = self else { return }
-            self.apiError.onNext("")
+            self.apiError.onNext(errorString)
         }).suppressError()
     }
     
@@ -82,7 +89,7 @@ extension ProfileViewModel{
     private func fetchRecentMedia(maxID: String? = nil, minID: String? = nil)->Observable<Data>{
         return APIClient.fetchRecentMedia(maxID: maxID,minID: minID).do( onError:{ [weak self] _ in
             guard let self = self else { return }
-            self.apiError.onNext("")
+            self.apiError.onNext(errorString)
         }).suppressError()
     }
     
@@ -91,7 +98,7 @@ extension ProfileViewModel{
         return APIClient.rxJSONAPIObservable(url: URLRequest(url:URL(string: nextURL)!))
             .do(onError: { [weak self] _ in
                 guard let self = self else { return }
-                self.apiError.onNext("")
+                self.apiError.onNext(errorString)
             }).suppressError()
     }
 }

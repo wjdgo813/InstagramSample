@@ -13,7 +13,6 @@ protocol DetailContent {
     var profileNickname  : UILabel     { get }
     var contentImageView : UIImageView { get }
     var contentText      : UILabel     { get }
-    var replyButton      : UIButton    { get }
 }
 
 
@@ -52,15 +51,6 @@ final class DetailView: BaseView, DetailContent{
         return label
     }()
     
-    
-    lazy var replyButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("댓글 보기", for: .normal)
-        button.setTitleColor(.lightGray, for: .normal)
-        button.layer.borderColor = UIColor.lightGray.cgColor
-        button.layer.borderWidth = 1
-        return button
-    }()
     
     
     private lazy var profileStackView: UIStackView = {
@@ -136,12 +126,11 @@ extension DetailView{
         self.contentStackView.addArrangedSubview(self.profileStackView)
         self.contentStackView.addArrangedSubview(self.contentImageView)
         self.contentStackView.addArrangedSubview(self.contentText)
-        self.contentStackView.addArrangedSubview(self.replyButton)
         self.contentStackView.snp.makeConstraints{
             $0.top.equalToSuperview().offset(10)
             $0.left.equalToSuperview().offset(5)
             $0.right.equalToSuperview().offset(-5)
-            $0.bottom.equalToSuperview().offset(5)
+            $0.bottom.equalToSuperview().offset(-5)
         }
         
         
@@ -153,12 +142,6 @@ extension DetailView{
         
         
         self.contentText.snp.makeConstraints{
-            $0.left.equalToSuperview()
-            $0.right.equalToSuperview()
-        }
-        
-        
-        self.replyButton.snp.makeConstraints{
             $0.left.equalToSuperview()
             $0.right.equalToSuperview()
         }
