@@ -160,4 +160,13 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout{
         let size = collectionView.frame.width / 3 - 1
         return CGSize(width: size, height: size + 40)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let profileCell = cell as? ProfileCell else {
+            return
+        }
+        
+        profileCell.removeImageCache()
+    }
 }

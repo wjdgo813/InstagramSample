@@ -57,4 +57,12 @@ final class ProfileCell: UICollectionViewCell {
         self.thumbnail.cacheImageView(urlString: imageURL, identifier: cacheIdentify)
         self.titleLabel.text = contentData.caption?.text ?? ""
     }
+    
+    
+    func removeImageCache(){
+        guard let contentData = self.contentData else { return }
+        let cacheIdentify = contentData.mediaID ?? "thumbnail"
+        let imageCache = AutoPurgingImageCache()
+        imageCache.removeImage(withIdentifier: cacheIdentify)
+    }
 }
