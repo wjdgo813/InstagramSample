@@ -1,4 +1,4 @@
-# InstagramSample
+# fInstagramSample
 
 Instagram Open API를 이용한 내 게시글 조회 앱
 
@@ -40,7 +40,7 @@ var currentIndex = 0
 
 하지만 RxSwift는 immutable data를 비동기 코드로 작성이 가능하다. (.map, .filter등 외에도 스트림을 직접 선언하기 때문)
 
-###[RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa) 
+### [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa) 
 
 RxSwift는 ReactiveX의 공통 API들을 구현한 라이브러리지만, Cocoa나 UIKit 몇몇 클래스에 대해서는 구현이 되어 있지 않다. 이를 위한 것이 **RxCocoa**이다. 
 
@@ -52,7 +52,7 @@ UITableView 혹은 UICollectionView와 Data들을 바인딩 해주도록 도와�
 
 Rx에서 가장 중요한 것은 사용자의 이벤트부터 시작해서 데이터 변화의 감지를 구독하는 것까지의 하나의 시퀀스를 정의하는 것이 핵심이다. 하지만 RxCocoa에서는 UICollectionView의 UI 구성하는 컴포넌트에 대해 지원이 되어있지 않다. 이를 위해 개발자가 직접 extension을 구현하거나 혹은 중간에 시퀀스를 끊고 개발자가 직접 리스트 구려주는 로직이 필요한데, 이를 편하게 개발해주도록 도와주는 것이 RxDataSources이다.
 
-###[Alamofire](https://github.com/Alamofire/Alamofire) 
+### [Alamofire](https://github.com/Alamofire/Alamofire) 
 
 Alamofire는 HTTP request를 도와주는 라이브러리다.
 
