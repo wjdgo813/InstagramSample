@@ -19,7 +19,7 @@ Instagram Open API를 이용한 내 게시글 조회 앱
 
 ![screenshot](./image/complexApple.png)
 
-위의 그림처럼 이미 Apple에서는 여러가지 비동기를 지원해주고 있다. 하지만 이 모든 비동기 API를 적용하면 코드의 일관성이 없어진다. RxSwift는 비동기 시퀀스를 **선언형**으로 작성하기 때문에, 개발자가 코드를 관리하기 편리해진다. 
+위의 그림처럼 이미 Apple에서는 여러가지 비동기를 지원해주고 있다. 하지만 이 모든 비동기 API를 적용하면 코드의 일관성이 없어진다. RxSwift는 비동기 시퀀스를 **선언형**으로 작성하기 때문에, 일정한 패러다임을 개발자가 직접 선언이 가능하다. 
 
 그 외에도 immutable한 데이터를 비동기로 작성한다는데에 있다.
 
@@ -50,7 +50,7 @@ View와 Data간의 바인딩을 위한 .bind()나 혹은 UI(UIComponent) 이벤�
 
 UITableView 혹은 UICollectionView와 Data들을 바인딩 해주도록 도와준다. 
 
-Rx에서 가장 중요한 것은 사용자의 이벤트부터 시작해서 데이터 변화의 감지를 구독하는 것까지의 하나의 시퀀스를 정의하는 것이 핵심이다. 하지만 RxCocoa에서는 UICollectionView의 UI 구성하는 컴포넌트에 대해 지원이 되어있지 않다. 이를 위해 개발자가 직접 extension을 구현하거나 혹은 중간에 시퀀스를 끊고 개발자가 직접 리스트 구려주는 로직이 필요한데, 이를 편하게 개발해주도록 도와주는 것이 RxDataSources이다.
+Rx에서 가장 중요한 것은 사용자의 이벤트부터 시작해서 데이터 변화의 감지를 구독하는 것까지의 하나의 시퀀스를 정의하는 것이 핵심이다. 하지만 RxCocoa에서는 UICollectionView의 UI 구성하는 컴포넌트에 대해 지원이 되어있지 않다. 이를 위해 개발자가 직접 extension을 구현하거나 혹은 중간에 시퀀스를 끊고 개발자가 직접 리스트 그려주는 로직이 필요한데, 이러한 상황일 때 편하게 개발해주도록 도와주는 것이 RxDataSources이다.
 
 ### [Alamofire](https://github.com/Alamofire/Alamofire) 
 
